@@ -1,7 +1,5 @@
 package com.estech.backendfactura.DTO;
 
-import java.util.List;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ClienteFacturaDTO {
-    private String cliente;
+public class FacturaDTO {
+    private Long id;
 
-    private List<FacturaDTO> facturas;
+    private Double importe;
 }

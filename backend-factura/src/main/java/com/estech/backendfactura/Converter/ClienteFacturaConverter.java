@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.estech.backendfactura.DTO.ClienteFacturaDTO;
+import com.estech.backendfactura.DTO.FacturaDTO;
 import com.estech.backendfactura.model.Cliente;
 import com.estech.backendfactura.model.Factura;
 
@@ -20,10 +21,15 @@ public class ClienteFacturaConverter {
 
         List<Factura> facturas = cliente.getFacturas();
 
-        List<Double> facturasForCliente = new ArrayList<>();
+        List<FacturaDTO> facturasForCliente = new ArrayList<>();
 
         facturas.forEach(factura -> {
-            facturasForCliente.add(factura.getImporteTotal());
+            FacturaDTO facturaDTO = new FacturaDTO();
+
+            facturaDTO.setId(factura.getId());
+            facturaDTO.setImporte(factura.getImporteTotal());
+
+            facturasForCliente.add(facturaDTO);
         });
 
         clienteFacturaDTO.setFacturas(facturasForCliente);
