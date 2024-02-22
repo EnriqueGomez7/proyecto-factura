@@ -7,5 +7,5 @@ import com.estech.backendfactura.model.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    
+    Cliente findByNombre(String nombre);
 }
